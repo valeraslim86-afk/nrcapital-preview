@@ -75,3 +75,5 @@ footer{background:#151E23}footer a{color:#FAC40B}
 @media(max-width:700px){.nav{flex-direction:column;align-items:flex-start;gap:4px;padding:8px 0}.logo svg{height:42px}}
 
 .top .nav{flex-direction:column;justify-content:center;align-items:center;gap:6px;padding-top:8px;padding-bottom:6px}.top .logo{justify-content:center}.top .nav nav{justify-content:center}
+
+:root{--bg:#141b20;--card:#1F2C33;--ink:#eef1f3;--mut:#a9b4bb;--line:#33434c;--brand:#ffffff;--sh:none}body{background:var(--bg);color:var(--ink)}.top{background:#1F2C33;border-bottom:1px solid #33434c}.nav nav a{color:#eef1f3}.card,.mf{background:var(--card);color:var(--ink);border-color:var(--line)}footer{background:#0e1317}h1,h2,h3{color:#fff}

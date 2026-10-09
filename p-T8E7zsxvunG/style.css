@@ -73,3 +73,5 @@ footer{background:#151E23}footer a{color:#FAC40B}
 .mf{background:var(--card)}
 @media(prefers-color-scheme:dark){:root:not([data-theme=light]) a{color:#FAC40B}:root:not([data-theme=light]) .btn.ghost{color:#fff!important;border-color:#fff}:root:not([data-theme=light]) .num{color:#fff}:root:not([data-theme=light]) .demo a{color:#1F2C33}:root:not([data-theme=light]) .btn,:root:not([data-theme=light]) .nav nav a[aria-current]{color:#1F2C33!important}:root:not([data-theme=light]) .logo svg .s{fill:#FAC40B}}
 @media(max-width:700px){.nav{flex-direction:column;align-items:flex-start;gap:4px;padding:8px 0}.logo svg{height:42px}}
+
+.top .nav{flex-direction:column;justify-content:center;align-items:center;gap:6px;padding-top:8px;padding-bottom:6px}.top .logo{justify-content:center}.top .nav nav{justify-content:center}

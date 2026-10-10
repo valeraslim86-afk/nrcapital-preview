@@ -82,6 +82,7 @@ footer{background:#151E23}footer a{color:#FAC40B}
 .tz-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
 .tz{padding:14px 16px}.tz-score{display:inline-block;border-radius:8px;padding:4px 10px;font-weight:800;margin-bottom:8px;background:#FAC40B;color:#1F2C33}
 .tz-score.mid{background:#c9a21a}.tz-score.lo{background:#8a8f94;color:#fff}
+.tz{overflow:hidden}.tz-img{display:block;width:calc(100% + 32px);margin:-14px -16px 12px;height:150px;object-fit:cover;background:#26343c}.tz-noimg{display:flex;align-items:center;justify-content:center;font-size:13px;opacity:.6;height:150px;margin:-14px -16px 12px}
 .tz-t{font-weight:700;margin-bottom:4px}.tz-k{font-size:13px;opacity:.75}
 .tf{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}.tf label{display:flex;flex-direction:column;font-size:13px;gap:4px;min-width:150px}
 .tf select{padding:10px 12px;border-radius:10px;border:1px solid #33434c;background:#1F2C33;color:#eef1f3;font-size:16px}

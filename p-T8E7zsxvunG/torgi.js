@@ -24,19 +24,19 @@
     var reg = sel.value, k = kind.value, min = parseInt(minS.value, 10) || 0;
     var sale = 0, rent = 0, items = [];
     function push(list, kd, region) {
-      list.forEach(function (s) { if (s >= min) items.push({ s: s, k: kd, r: region }); });
+      list.forEach(function (x) { if (x[0] >= min) items.push({ s: x[0], k: kd, r: region, p: x[1] || "" }); });
     }
     if (reg === "all") {
       Object.keys(D.regions).forEach(function (r) { sale += D.regions[r].sale; rent += D.regions[r].rent; });
-      if (k !== "RENT") D.ts.forEach(function (x) { if (x[0] >= min) items.push({ s: x[0], k: "SALE", r: x[2] }); });
-      if (k !== "SALE") D.tr.forEach(function (x) { if (x[0] >= min) items.push({ s: x[0], k: "RENT", r: x[2] }); });
+      if (k !== "RENT") D.ts.forEach(function (x) { if (x[0] >= min) items.push({ s: x[0], k: "SALE", r: x[2], p: x[3] || "" }); });
+      if (k !== "SALE") D.tr.forEach(function (x) { if (x[0] >= min) items.push({ s: x[0], k: "RENT", r: x[2], p: x[3] || "" }); });
     } else {
       var R = D.regions[reg];
       sale = R.sale; rent = R.rent;
       if (k !== "RENT") push(R.ts, "SALE", reg);
       if (k !== "SALE") push(R.tr, "RENT", reg);
     }
-    items.sort(function (a, b) { return b.s - a.s; });
+    items.sort(function (a, b) { return ((b.p ? 1 : 0) - (a.p ? 1 : 0)) || (b.s - a.s); });
     var total = k === "SALE" ? sale : (k === "RENT" ? rent : sale + rent);
     return { items: items.slice(0, 8), total: total, sale: sale, rent: rent };
   }
@@ -59,6 +59,19 @@
     r.items.forEach(function (it) {
       var c = document.createElement("div");
       c.className = "card tz";
+      var ph;
+      if (it.p) {
+        ph = document.createElement("img");
+        ph.className = "tz-img";
+        ph.loading = "lazy";
+        ph.alt = "Превью объекта";
+        ph.src = "torgi-img/" + it.p + ".jpg";
+      } else {
+        ph = document.createElement("div");
+        ph.className = "tz-img tz-noimg";
+        ph.textContent = "Фото - в боте";
+      }
+      c.appendChild(ph);
       var b = document.createElement("span");
       b.className = "tz-score " + (it.s >= 85 ? "hi" : (it.s >= 70 ? "mid" : "lo"));
       b.textContent = it.s + " / 100";
